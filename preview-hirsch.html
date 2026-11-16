@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Cabinet Dentaire Dr. Shandy Hirsch — Aevix Labs</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/aevix.css">
+  <style>
+    .audit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 48px 0;
+    }
+    .audit-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 32px;
+    }
+    .audit-box.before { border-color: rgba(239, 68, 68, 0.3); }
+    .audit-box.after { border-color: rgba(16, 185, 129, 0.4); }
+    .audit-header {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .audit-list { list-style: none; }
+    .audit-list li {
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="aevix-header">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="brand-lockup">
+          <img src="assets/img/aevix-logo.svg" alt="Aevix Labs" class="brand-icon">
+          <div class="brand-text">
+            <span class="brand-name">AEVIX<span>LABS</span></span>
+            <span class="brand-badge">&larr; Back to Main Site</span>
+          </div>
+        </a>
+        <a href="https://proediter07.github.io/cabinet-dentaire-hirsch/" target="_blank" class="btn btn-primary">Open Live Prototype ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" style="padding-top: 64px; padding-bottom: 96px;">
+    <div style="max-width: 840px; margin: 0 auto;">
+      <span class="section-tag">Case Study #01 • Luxembourg-Bonnevoie</span>
+      <h1 class="hero-title" style="text-align: left; margin-bottom: 24px;">
+        Engineering the Digital Renaissance for <span class="gradient-text">Cabinet Dentaire Dr. Hirsch.</span>
+      </h1>
+      <p class="hero-subtitle" style="text-align: left; margin-bottom: 40px;">
+        How we elevated an authentic clinical hand-sketch into a luminous anatomical vector medallion and re-architected the patient journey for zero friction.
+      </p>
+
+      <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-subtle); margin-bottom: 48px;">
+        <img src="assets/img/hirsch-preview-desktop.png" alt="Cabinet Dentaire Hirsch Preview" style="width: 100%; display: block;">
+      </div>
+
+      <div class="audit-grid">
+        <div class="audit-box before">
+          <div class="audit-header" style="color: #f87171;">
+            <span>❌ The Legacy Clinic Site (Before)</span>
+          </div>
+          <ul class="audit-list">
+            <li><strong>1.8s+ Load Delay:</strong> Legacy WordPress install loaded unnecessary JS bundles and uncompressed images.</li>
+            <li><strong>Missing Mobile Conversion:</strong> No sticky booking button; mobile patients had to scroll through dense paragraphs to find a phone number.</li>
+            <li><strong>Low-Res Branding:</strong> Original hand-drawn tooth was a blurry 180px PNG with gray artifacts on retina screens.</li>
+            <li><strong>Zero Structured Data:</strong> Missing schema.org Dentist markup, causing poor local Google Maps search visibility.</li>
+          </ul>
+        </div>
+
+        <div class="audit-box after">
+          <div class="audit-header" style="color: #34d399;">
+            <span>✅ The Aevix Labs Architecture (After)</span>
+          </div>
+          <ul class="audit-list">
+            <li><strong>0.32s Interactive Speed:</strong> Pure semantic code with 100/100 Core Web Vitals on mobile and desktop.</li>
+            <li><strong>Sticky Mobile Thumb-Zone Dock:</strong> Immediate 1-tap access to Doctena booking, clinic telephone, and Google Maps routing.</li>
+            <li><strong>Retina Vector Medallion:</strong> High-res SVG anatomical molar with dual root geometry, enamel contours, and rose-jewel pulp glow.</li>
+            <li><strong>Google Dentist JSON-LD:</strong> Full structured schema injected for high-ranking Luxembourg local medical search.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 64px; padding: 48px; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 16px;">Experience the Live Production Build</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">The prototype is currently hosted on high-speed edge infrastructure.</p>
+        <a href="https://proediter07.github.io/cabinet-dentaire-hirsch/" target="_blank" class="btn btn-primary" style="padding: 14px 32px; font-size: 1.05rem;">
+          Launch Cabinet Dentaire Dr. Hirsch ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="aevix-footer">
+    <div class="container" style="text-align: center;">
+      <p class="footer-copy">&copy; 2026 Aevix Labs. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
