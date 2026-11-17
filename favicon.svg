@@ -1,16 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <defs>
-    <linearGradient id="aevixGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00f2fe"/>
-      <stop offset="50%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#818cf8"/>
-    </linearGradient>
-    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-  </defs>
-  <polygon points="24,4 42,14 42,34 24,44 6,34 6,14" stroke="url(#aevixGlow)" stroke-width="2.5" fill="rgba(15, 23, 42, 0.75)" filter="url(#glowFilter)"/>
-  <path d="M24 12L34 32H28.5L24 23L19.5 32H14L24 12Z" fill="url(#aevixGlow)"/>
-  <circle cx="24" cy="23" r="2.5" fill="#ffffff"/>
+  <path d="M24 6L40 38H32.5L24 21L15.5 38H8L24 6Z" fill="currentColor"/>
+  <polygon points="24,25 29,36 19,36" fill="var(--accent-secondary, #38bdf8)" class="logo-dynamic-accent"/>
+  <circle cx="24" cy="21" r="2.5" fill="#ffffff"/>
 </svg>
