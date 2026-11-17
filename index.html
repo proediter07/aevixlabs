@@ -1,415 +1,633 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aevix Labs — High-Performance Clinical Web Systems & Architecture</title>
-  <meta name="description" content="Aevix Labs designs and engineers sub-second clinical web platforms, friction-free patient booking systems, and certified GDPR compliance for healthcare practices across Luxembourg, Switzerland, Germany and the UK.">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Aevix Labs — Modern Web Architecture for Elite Healthcare Practices">
-  <meta property="og:description" content="Replacing slow, outdated clinic websites with bespoke, sub-second web platforms and 1-click patient appointment architecture.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aevixlabs.com/">
-  <meta property="og:image" content="https://aevixlabs.com/assets/img/hirsch-preview-desktop.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AevixLabs · Clinical Web Systems for Western Europe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root, html[data-theme="light"]{
+  --font-head:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;
+  --bg:#F4F4F4; /* Brand Guide: Soft White */
+  --bg-radial:radial-gradient(closest-side,rgba(44,201,166,.18),transparent);
+  --contact-radial:radial-gradient(60% 90% at 50% 0%,rgba(44,201,166,.18),rgba(255,255,255,.7));
+  --ink:#0A0A0A; /* Brand Guide: Ink Black */
+  --mut:#54605C;
+  --mint:#0E8565; /* High contrast clinical mint */
+  --mint2:#2CC9A6; /* Brand Guide: Deep Mint */
+  --mint-tag:rgba(44,201,166,.12);
+  --mint-tag-border:rgba(44,201,166,.3);
+  --line:rgba(10,10,10,.1);
+  --glass-bg:linear-gradient(135deg,rgba(255,255,255,.96),rgba(247,250,248,.88));
+  --glass-border:1px solid rgba(10,10,10,.08);
+  --glass-shadow:0 10px 30px rgba(0,0,0,.04);
+  --nav-bg:rgba(255,255,255,.85);
+  --mock-bg:#ffffff;
+  --mock-border:1px solid rgba(10,10,10,.12);
+  --mock-head:#111111;
+  --mock-sub:#d4d4d4;
+  --toast-bg:rgba(255,255,255,.95);
+  --plan-top-bg:linear-gradient(160deg,rgba(44,201,166,.14),rgba(255,255,255,.92));
+  --plan-top-border:rgba(44,201,166,.55);
+  --plan-top-shadow:0 10px 40px rgba(44,201,166,.15);
+  --calc-res-bg:rgba(44,201,166,.1);
+  --calc-res-border:1px solid rgba(44,201,166,.32);
+  --input-bg:#ffffff;
+  --input-border:rgba(10,10,10,.16);
+  --input-color:#0A0A0A;
+  --btn-bg:#0A0A0A; /* Brand Guide: Ink Black buttons */
+  --btn-color:#ffffff;
+  --btn-ghost-color:#0A0A0A;
+  --btn-ghost-border:rgba(10,10,10,.2);
+  --logo-fill:#0A0A0A;
+  color-scheme:light;
+}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+html[data-theme="dark"]{
+  --font-head:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Plus Jakarta Sans',sans-serif;
+  --bg:#09090b;
+  --bg-radial:radial-gradient(closest-side,rgba(168,240,212,.18),transparent);
+  --contact-radial:radial-gradient(60% 90% at 50% 0%,rgba(168,240,212,.16),rgba(255,255,255,.02));
+  --ink:#F2F2F2;
+  --mut:#9AA3A0;
+  --mint:#7ADBC3;
+  --mint2:#5FE3B8;
+  --mint-tag:rgba(168,240,212,.1);
+  --mint-tag-border:rgba(168,240,212,.25);
+  --line:rgba(255,255,255,.12);
+  --glass-bg:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  --glass-border:1px solid rgba(255,255,255,.14);
+  --glass-shadow:inset 0 1px 0 rgba(255,255,255,.16);
+  --nav-bg:rgba(10,10,12,.75);
+  --mock-bg:#0b0b0c;
+  --mock-border:1px solid rgba(255,255,255,.16);
+  --mock-head:#ececec;
+  --mock-sub:#333333;
+  --toast-bg:rgba(14,14,14,.85);
+  --plan-top-bg:linear-gradient(160deg,rgba(168,240,212,.16),rgba(255,255,255,.02));
+  --plan-top-border:rgba(168,240,212,.6);
+  --plan-top-shadow:0 0 60px rgba(168,240,212,.14);
+  --calc-res-bg:rgba(168,240,212,.07);
+  --calc-res-border:1px solid rgba(168,240,212,.25);
+  --input-bg:rgba(255,255,255,.05);
+  --input-border:rgba(255,255,255,.14);
+  --input-color:#ffffff;
+  --btn-bg:#7ADBC3;
+  --btn-color:#000000;
+  --btn-ghost-color:#ffffff;
+  --btn-ghost-border:rgba(255,255,255,.14);
+  --logo-fill:#ffffff;
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/aevix.css">
+html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);transition:background .25s ease}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--font-body);line-height:1.55;overflow-x:hidden;transition:color .25s ease}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+h1,h2,h3,.price,.wm,.big{font-family:var(--font-head);letter-spacing:-.03em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.glass{background:var(--glass-bg);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);border:var(--glass-border);box-shadow:var(--glass-shadow);transition:background .25s ease,border-color .25s ease}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-top:12px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px 9px 18px;border-radius:999px;background:var(--nav-bg);transition:background .25s ease}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.brand svg{width:28px;height:28px}
+.brand svg path{fill:var(--logo-fill);transition:fill .25s ease}
+.wm{font-size:20px;letter-spacing:-.03em;line-height:1}.wm b{font-weight:700;color:var(--ink)}.wm i{font-style:normal;font-weight:400;color:var(--mint2)}
+.links{display:flex;gap:26px}.links a{color:var(--mut);text-decoration:none;font-size:14px;transition:color .2s}.links a:hover{color:var(--mint)}
+.right{display:flex;align-items:center;gap:8px}
+.lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:rgba(128,128,128,.1)}
+.lang button{all:unset;cursor:pointer;font-size:12px;letter-spacing:.06em;padding:6px 10px;border-radius:999px;color:var(--mut);transition:all .2s}
+.lang button[aria-pressed=true]{background:var(--mint2);color:#000;font-weight:600}
+.theme-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600;color:var(--ink);background:rgba(128,128,128,.1);border:1px solid var(--line);transition:all .2s}
+.theme-btn:hover{border-color:var(--mint);transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:14px 26px;border-radius:999px;color:var(--btn-color);background:var(--btn-bg);box-shadow:0 0 30px rgba(122,219,195,.28);transition:transform .2s,box-shadow .2s;border:none;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 44px rgba(122,219,195,.5)}
+.btn.sm{padding:10px 18px;font-size:14px}
+.btn.ghost{color:var(--btn-ghost-color);background:transparent;border:1px solid var(--btn-ghost-border);box-shadow:none}
+.btn.ghost:hover{border-color:var(--mint);color:var(--mint);transform:translateY(-2px)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:84px 0 64px}
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mint2);margin-bottom:22px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mint2);box-shadow:0 0 0 0 rgba(44,201,166,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(44,201,166,0)}100%{box-shadow:0 0 0 0 rgba(44,201,166,0)}}
+h1{font-size:clamp(38px,6.2vw,74px);line-height:1.02;letter-spacing:-.04em;margin:0 0 22px;font-weight:700}
+h1 em{font-style:normal;color:var(--mint2)}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--mut);max-width:520px;margin:0 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.proof-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);text-decoration:none;padding:8px 14px;border-radius:999px;transition:all .2s}
+.proof-tag:hover{color:var(--mint);border-color:var(--mint)}
+.vis{position:relative}
+.vis::before{content:"";position:absolute;inset:-40px;background:var(--bg-radial);z-index:0}
+.mock{position:relative;z-index:1;border-radius:22px;overflow:hidden;border:var(--mock-border);background:var(--mock-bg);box-shadow:0 30px 80px rgba(0,0,0,.15);transition:background .25s ease}
+.mbar{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.mbar i{width:10px;height:10px;border-radius:50%;background:rgba(128,128,128,.3)}
+.mbar span{margin-left:14px;font-size:12px;color:var(--mut);background:rgba(128,128,128,.1);padding:4px 14px;border-radius:999px}
+.mbody{padding:24px 22px 26px}
+.mnav{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.mnav b{width:22px;height:22px;border-radius:50%;background:var(--mint2)}
+.mnav u{height:6px;width:34px;border-radius:3px;background:rgba(128,128,128,.3)}.mnav u:first-of-type{margin-left:auto}
+.mh s{display:block;height:17px;border-radius:9px;background:var(--mock-head);margin-bottom:10px}.mh s:first-child{width:88%}.mh s:last-child{width:56%}
+.mp{height:7px;width:68%;border-radius:4px;background:var(--mock-sub);margin:18px 0 22px}
+.mbtn{display:inline-block;background:var(--mint2);color:#000;font-size:12px;font-weight:600;padding:9px 16px;border-radius:999px}
+.mt{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+.mt em{height:62px;border-radius:14px;background:rgba(128,128,128,.08);border:1px solid var(--line)}.mt em:first-child{background:linear-gradient(135deg,rgba(44,201,166,.35),rgba(44,201,166,.05))}
+.toast{position:absolute;z-index:2;right:-10px;bottom:-20px;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:16px;font-size:13px;background:var(--toast-bg);border:1px solid var(--line);animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.strip{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;white-space:nowrap;cursor:default}
+.strip:hover .track{animation-play-state:paused}
+.track{display:inline-flex;gap:48px;animation:slide 75s linear infinite;font-family:var(--font-head);font-size:20px;font-weight:500;color:var(--mut);letter-spacing:-.02em}
+.track span::after{content:"✦";color:var(--mint2);margin-left:48px;font-size:14px}
+@keyframes slide{to{transform:translateX(-50%)}}
+section{padding:72px 0}
+h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.035em;line-height:1.08;margin:0 0 14px;font-weight:700;max-width:720px}
+.sub{color:var(--mut);margin:0 0 36px;max-width:560px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{position:relative;border-radius:26px;padding:28px;overflow:hidden;transition:transform .3s,border-color .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--x,50%) var(--y,0%),rgba(44,201,166,.14),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-5px);border-color:var(--mint2)}.card:hover::before{opacity:1}
+.card h3{margin:0 0 10px;font-size:21px;letter-spacing:-.02em;position:relative}
+.card p{margin:0;color:var(--mut);font-size:15px;position:relative}
+.num{display:block;font-family:var(--font-head);color:var(--mint2);font-size:14px;letter-spacing:.14em;margin-bottom:34px;position:relative}
+.val{display:inline-block;margin-top:20px;font-size:13px;color:var(--mint);background:var(--mint-tag);border:1px solid var(--mint-tag-border);padding:6px 14px;border-radius:999px;position:relative;font-weight:600}
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;border-radius:32px;padding:36px}
+.fld{margin-bottom:28px}.fld label{display:flex;justify-content:space-between;font-size:15px;margin-bottom:12px}.fld label b{font-family:var(--font-head);color:var(--mint2);font-size:20px;font-weight:600}
+input[type=range]{width:100%;accent-color:var(--mint2);height:6px}
+.res{display:flex;flex-direction:column;justify-content:center;border-radius:24px;padding:28px;background:var(--calc-res-bg);border:var(--calc-res-border)}
+.res span{color:var(--mut);font-size:14px}.big{font-size:clamp(36px,5vw,58px);font-weight:700;letter-spacing:-.04em;color:var(--mint2);line-height:1.1;margin:8px 0 14px}
+.res small{color:var(--mut);font-size:12px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));border-top:1px solid var(--line)}
+.feat div{padding:28px 24px 28px 0;border-bottom:1px solid var(--line)}
+.feat h3{margin:0 0 8px;font-size:20px;letter-spacing:-.02em}.feat h3::before{content:"✦";color:var(--mint2);margin-right:10px;font-size:14px}
+.feat p{margin:0;color:var(--mut);font-size:15px}
+.plan{display:flex;flex-direction:column;gap:16px}
+.plan.top{border-color:var(--plan-top-border);background:var(--plan-top-bg);box-shadow:var(--plan-top-shadow)}
+.tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);min-height:16px;position:relative;font-weight:700}
+.price{font-size:44px;font-weight:700;letter-spacing:-.04em;line-height:1;position:relative}.price small{font-size:14px;font-weight:400;color:var(--mut);letter-spacing:0;margin-left:6px}
+.plan ul{list-style:none;padding:0;margin:0 0 10px;display:grid;gap:11px;font-size:14px;position:relative}
+.plan li{display:flex;align-items:flex-start;gap:8px;color:var(--ink)}
+.plan li::before{content:"✓";color:var(--mint2);font-weight:bold}
+.plan .btn{text-align:center;margin-top:auto;position:relative;width:100%}
+.clinical-note-box{max-width:880px;margin:32px auto 0;padding:26px 30px;border-radius:20px;border-left:4px solid var(--mint2);position:relative;display:flex;flex-direction:column;gap:12px;background:linear-gradient(135deg,rgba(44,201,166,.08),rgba(255,255,255,.02));border-top:1px solid rgba(44,201,166,.2);border-right:1px solid rgba(44,201,166,.2);border-bottom:1px solid rgba(44,201,166,.2);box-shadow:0 12px 36px rgba(0,0,0,.08)}
+html[data-theme="light"] .clinical-note-box{background:linear-gradient(135deg,rgba(44,201,166,.12),rgba(255,255,255,.98));border-top:1px solid rgba(44,201,166,.3);border-right:1px solid rgba(44,201,166,.3);border-bottom:1px solid rgba(44,201,166,.3);border-left:4px solid var(--mint2);box-shadow:0 14px 40px rgba(44,201,166,.12)}
+.clinical-note-box .note-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.clinical-note-box .note-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(44,201,166,.16);color:var(--mint2);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px;border:1px solid rgba(44,201,166,.35)}
+html[data-theme="light"] .clinical-note-box .note-pill{color:var(--mint);background:rgba(44,201,166,.18);border-color:rgba(44,201,166,.45)}
+.clinical-note-box .note-subtag{font-size:12px;color:var(--mut);font-weight:600;letter-spacing:.02em}
+.clinical-note-box h4{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.clinical-note-box p{margin:0;font-size:13.5px;line-height:1.65;color:var(--mut)}
+.clinical-note-box p strong{color:var(--ink)}
+.deont-badge{display:none}
+.contact{border-radius:40px;padding:64px 32px;background:var(--contact-radial)}
+.contact h2{margin:0 auto 16px;text-align:center}.contact p{color:var(--mut);margin:0 auto 28px;max-width:540px;text-align:center}
+.c-box{max-width:540px;margin:0 auto;display:grid;gap:14px}
+.c-box input,.c-box textarea{width:100%;background:var(--input-bg);border:1px solid var(--input-border);border-radius:14px;padding:14px 18px;color:var(--input-color);font-family:inherit;font-size:14px;outline:none;transition:border-color .2s}
+.c-box input:focus,.c-box textarea:focus{border-color:var(--mint2)}
+.c-direct{display:flex;justify-content:center;gap:24px;margin-top:24px;font-size:14px;color:var(--mut)}
+.c-direct a{color:var(--mint);text-decoration:none;transition:opacity .2s;font-weight:600}
+.c-direct a:hover{opacity:.8;text-decoration:underline}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;text-align:center;color:var(--mut);font-size:14px}
+.sbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--nav-bg);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+.sbar .btn{display:block;text-align:center}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.track,.toast,.dot{animation:none}.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:44px}.calc{grid-template-columns:1fr;padding:24px}.links{display:none}.sbar{display:block}footer{padding-bottom:96px}.toast{right:8px}}
+@media (max-width:560px){.nav .btn{display:none}.wm{font-size:18px}.c-direct{flex-direction:column;gap:10px;text-align:center}}
+.font-btn{all:unset;cursor:pointer;padding:4px 9px;border-radius:999px;color:var(--mut);font-size:11px;font-weight:500;transition:all .2s}
+.font-btn.active{background:var(--mint2);color:#000;font-weight:600}
+.font-btn:hover:not(.active){color:var(--ink)}
+</style>
 </head>
 <body>
+<!-- Optimized Brand Mark: Peak (Growth) + Arch (Entrance) + Patient Dot (Mint Accent) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="m" viewBox="0 0 64 64">
+    <path fill="var(--logo-fill)" fill-rule="evenodd" d="M32 3 L62 59 L2 59 Z M24 59 V42 A8 8 0 0 1 40 42 V59 Z" />
+    <circle cx="32" cy="21" r="3.8" fill="var(--mint2)" />
+  </symbol>
+</svg>
 
-  <!-- Navigation -->
-  <header class="aevix-header">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="index.html" class="brand-lockup">
-          <img src="assets/img/aevix-logo.svg" alt="Aevix Labs" class="brand-icon">
-          <div class="brand-text">
-            <span class="brand-name">AEVIX<span>LABS</span></span>
-            <span class="brand-badge">European Digital Lab</span>
-          </div>
-        </a>
+<header><div class="wrap"><div class="nav glass">
+<a class="brand" href="#top" aria-label="AevixLabs"><svg viewBox="0 0 64 64"><use href="#m"/></svg><span class="wm"><b>Aevix</b><i>Labs</i></span></a>
+<nav class="links"><a href="#who" data-i18n="n_who">Clinics</a><a href="#calc" data-i18n="n_calc">Value</a><a href="#pricing" data-i18n="n_price">Pricing</a><a href="#contact" data-i18n="n_contact">Contact</a></nav>
+<div class="right">
+  <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="fr" aria-pressed="false">FR</button><button data-l="de" aria-pressed="false">DE</button></div>
+  <button id="theme-btn" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Dark / Light Theme" title="Toggle Dark/Light Mode">
+    <span id="theme-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+    <span id="theme-text">Dark</span>
+  </button>
+  <a class="btn sm" href="#contact" data-i18n="cta">Request Preview</a>
+</div>
+</div></div></header>
 
-        <ul class="nav-links">
-          <li><a href="#case-study">Case Studies</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#calculator">ROI Calculator</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<main id="top">
+<div class="wrap"><div class="hero">
+<div>
+<span class="eye"><span class="dot"></span><span data-i18n="eye">Luxembourg · Switzerland · Monaco</span></span>
+<h1 data-i18n="h1">Your website is your first consultation.</h1>
+<p class="lead" data-i18n="lead">AevixLabs engineers bespoke clinical web systems for orthodontists, implantologists and aesthetic doctors, so high-value patients choose your practice before calling.</p>
+<div class="cta"><a class="btn" href="#contact" data-i18n="cta">Request 24h Preview</a><a class="btn ghost" href="#pricing" data-i18n="cta2">See Architecture & Pricing</a></div>
+<a href="https://preview.aevixlabs.com/cabinet-dentaire-hirsch" target="_blank" rel="noopener" class="proof-tag glass">
+  <span class="dot"></span>
+  <span data-i18n="case_badge">Case Study: Cabinet Dentaire Bonnevoie · Inspect live system ↗</span>
+</a>
+</div>
+<div class="vis">
+<div class="mock"><div class="mbar"><i></i><i></i><i></i><span>cabinet-dentaire.lu</span></div>
+<div class="mbody"><div class="mnav"><b></b><u></u><u></u><u></u></div><div class="mh"><s></s><s></s></div><div class="mp"></div><span class="mbtn" data-i18n="m_cta">Book on Doctena</span><div class="mt"><em></em><em></em><em></em></div></div></div>
+<div class="toast glass"><span class="dot"></span><span data-i18n="m_toast">New Doctena Booking · 14:30</span></div>
+</div>
+</div></div>
 
-        <div class="nav-actions">
-          <!-- Multi-Palette Switcher (Cobalt, Titanium, Gold, Emerald) -->
-          <div class="palette-switcher" title="Switch Agency Theme Palette">
-            <button class="palette-btn cobalt active" data-theme="cobalt" title="Zurich Cobalt (Swiss Medical Standard)"></button>
-            <button class="palette-btn titanium" data-theme="titanium" title="Matte Titanium (Pro Minimalist)"></button>
-            <button class="palette-btn gold" data-theme="gold" title="Monaco Gold (Private Wealth & Surgery)"></button>
-            <button class="palette-btn emerald" data-theme="emerald" title="Medical Emerald (Health-Tech Vitality)"></button>
-          </div>
+<div class="strip" aria-hidden="true"><div class="track"><span>Bespoke Clinical Architecture</span><span>1-Tap Doctena & OneDoc Sync</span><span>100% Zero-Cookie CNPD Compliance</span><span>Instant Trilingual Switcher (FR / EN / DE)</span><span>Sub-0.4s Mobile 5G Performance</span><span>Apple-Grade Sterile Aesthetics</span><span>Digital Patient Triage Forms</span><span>Zero Mandatory Monthly Contracts</span><span>24-Hour Prototype Delivery</span><span>Bespoke Clinical Architecture</span><span>1-Tap Doctena & OneDoc Sync</span><span>100% Zero-Cookie CNPD Compliance</span><span>Instant Trilingual Switcher (FR / EN / DE)</span><span>Sub-0.4s Mobile 5G Performance</span><span>Apple-Grade Sterile Aesthetics</span><span>Digital Patient Triage Forms</span><span>Zero Mandatory Monthly Contracts</span><span>24-Hour Prototype Delivery</span></div></div>
 
-          <div class="status-pill">
-            <span class="status-dot"></span>
-            <span>Q4/Q1 Open</span>
-          </div>
-          <a href="#contact" class="btn btn-primary">Start a Project</a>
-        </div>
-      </div>
+<section id="who"><div class="wrap">
+<h2 class="rv" data-i18n="who_h">Engineered for practices where trust decides.</h2>
+<div class="grid">
+<div class="card glass rv"><span class="num">01</span><h3 data-i18n="w1t">Orthodontists & pediatric dentists</h3><p data-i18n="w1p">Parents choose by how modern, gentle and sterile your online presence feels.</p><span class="val" data-i18n="w1v">Invisalign · €4,000–€7,000 per case</span></div>
+<div class="card glass rv"><span class="num">02</span><h3 data-i18n="w2t">Implantologists & dental surgeons</h3><p data-i18n="w2p">One single high-trust website can secure a complex full-mouth restoration.</p><span class="val" data-i18n="w2v">Full-mouth restoration · €10,000–€25,000</span></div>
+<div class="card glass rv"><span class="num">03</span><h3 data-i18n="w3t">Aesthetic doctors & cosmetic clinics</h3><p data-i18n="w3p">Private-pay patients evaluate your artistic standards through your digital design.</p><span class="val" data-i18n="w3v">Botox, fillers, laser · 100% private pay</span></div>
+</div></div></section>
+
+<section id="calc"><div class="wrap">
+<h2 class="rv" data-i18n="calc_h">What is one extra patient worth?</h2>
+<p class="sub rv" data-i18n="calc_p">Move the sliders to project the annual turnover added by an elite booking system.</p>
+<div class="calc glass rv">
+<div><div class="fld"><label><span data-i18n="calc_v">Average treatment case value</span><b id="vo">€5,000</b></label><input id="cv" type="range" min="500" max="25000" step="500" value="5000"></div>
+<div class="fld"><label><span data-i18n="calc_n">Extra patients booked per month</span><b id="po">2</b></label><input id="cp" type="range" min="1" max="10" step="1" value="2"></div></div>
+<div class="res"><span data-i18n="calc_o">Projected annual added revenue</span><div class="big" id="out">€120,000</div><small data-i18n="calc_f">Conservative model based on your inputs. Break-even occurs on patient #1.</small></div>
+</div></div></section>
+
+<section id="svc"><div class="wrap">
+<h2 class="rv" data-i18n="svc_h">Everything your practice needs. Nothing you don't.</h2>
+<div class="feat rv">
+<div><h3 data-i18n="s1t">Bespoke Clinical Design</h3><p data-i18n="s1p">High-end sterile aesthetics tailored to your clinic, never generic templates.</p></div>
+<div><h3 data-i18n="s2t">Instant Page Speed</h3><p data-i18n="s2p">100/100 performance that opens within 0.4s on 5G mobile networks.</p></div>
+<div><h3 data-i18n="s3t">1-Tap Booking Dock</h3><p data-i18n="s3p">Deep integration with Doctena (LU/BE) and OneDoc (CH) to turn visitors into confirmed seats.</p></div>
+<div><h3 data-i18n="s4t">Trilingual Synchronization</h3><p data-i18n="s4p">Native English, French and German copywriting calibrated for Luxembourg and Swiss patients.</p></div>
+</div></div></section>
+
+<!-- UPGRADED PRICING ARCHITECTURE -->
+<section id="pricing"><div class="wrap">
+<h2 class="rv" data-i18n="price_h">Transparent clinical investment.</h2>
+<p class="sub rv" data-i18n="price_note">Bespoke fixed pricing. 70% below local agencies, with VIP care included and zero mandatory contracts.</p>
+
+<div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); max-width: 880px; margin: 0 auto 28px;">
+
+<!-- Card 1: Core All-In System (Flagship) -->
+<div class="card glass plan top rv">
+  <span class="tag" data-i18n="p1_tag">Flagship · Solo & Duo Practices</span>
+  <h3 data-i18n="p1_h">Complete Clinical System</h3>
+  <div class="price">€1,290<small data-i18n="p1_term">one-time</small></div>
+  <ul>
+    <li data-i18n="p1_f1">Complete 5–7 page bespoke architecture (100% custom to your requests)</li>
+    <li data-i18n="p1_f2">1-Tap Doctena / OneDoc synchronized appointment dock</li>
+    <li data-i18n="p1_f3">Full Trilingual synchronization (FR / EN / DE) included</li>
+    <li data-i18n="p1_f4">100% Zero-Cookie & CNPD / GDPR compliance</li>
+    <li style="color:var(--mint);font-weight:600" data-i18n="p1_f5">★ 6 Months of VIP Cloud Hosting & Care Warranty Included</li>
+  </ul>
+  <a class="btn" href="#contact" data-i18n="p1_cta">Request 24h Preview</a>
+</div>
+
+<!-- Card 2: Polyclinic Suite (Anchor) -->
+<div class="card glass plan rv">
+  <span class="tag" data-i18n="p2_tag">Multi-Doctor & Surgical Centers</span>
+  <h3 data-i18n="p2_h">Polyclinic Suite</h3>
+  <div class="price">€2,190<small data-i18n="p2_term">one-time</small></div>
+  <ul>
+    <li data-i18n="p2_f1">10–15 pages for group practices & multi-specialists</li>
+    <li data-i18n="p2_f2">Individual doctor bio pages with separate Doctena calendars</li>
+    <li data-i18n="p2_f3">Interactive digital patient intake / medical triage form</li>
+    <li data-i18n="p2_f4">Full trilingual synchronization (FR / EN / DE or LU)</li>
+    <li style="color:var(--mint);font-weight:600" data-i18n="p2_f5">★ 1 Full Year of VIP Hosting & Dedicated Architecture SLA Included</li>
+  </ul>
+  <a class="btn ghost" href="#contact" data-i18n="p2_cta">Consult Practice Architect</a>
+</div>
+
+</div>
+
+<!-- Ongoing Care & No Lock-in Banner -->
+<div class="glass rv" style="border-radius:24px;padding:32px;margin:28px auto 0;max-width:880px">
+  <div style="text-align:center;max-width:620px;margin:0 auto 24px">
+    <span class="val" style="margin-top:0;margin-bottom:12px;display:inline-block" data-i18n="care_badge">100% Code & Asset Ownership</span>
+    <h3 style="margin:0 0 8px;font-size:22px" data-i18n="care_title">Zero Mandatory Monthly Fees. Zero Lock-In.</h3>
+    <p style="color:var(--mut);font-size:14px;margin:0" data-i18n="care_desc">Unlike local agencies that trap you in €250/month 24-month contracts, you own your code, domain, and data from Day 1. Your initial VIP care is 100% covered (6 months for solo practices, 1 full year for polyclinics). Afterward, choose how you evolve:</p>
+  </div>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+    <div style="background:rgba(128,128,128,.06);border:1px solid var(--line);border-radius:18px;padding:22px">
+      <div style="font-size:11px;font-weight:700;color:var(--mint);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px" data-i18n="c_opt1_tag">Option A · Maximum Flexibility</div>
+      <h4 style="margin:0 0 4px;font-size:17px">Pay-As-You-Go Updates</h4>
+      <div style="font-size:26px;font-weight:700;margin:6px 0 10px;font-family:var(--font-head)">€115 <small style="font-size:13px;color:var(--mut);font-weight:400">/ change request</small></div>
+      <p style="color:var(--mut);font-size:13px;margin:0" data-i18n="c_opt1_desc">Only pay when your practice needs updates. Handled under standard turnaround (~24 hours). Zero monthly commitment.</p>
     </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-pill">
-        <span>⚡ Clinical Web Systems & Architecture</span>
-      </div>
-      <h1 class="hero-title">
-        Engineering High-Performance Web Platforms for <span class="gradient-text">Elite European Healthcare.</span>
-      </h1>
-      <p class="hero-subtitle">
-        We replace sluggish, outdated medical websites with bespoke, sub-second web platforms, friction-free patient booking docks, and certified GDPR compliance. Built specifically for private clinics in Luxembourg, Switzerland, Germany, and the UK.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#case-study" class="btn btn-primary">Explore Flagship Case Study &rarr;</a>
-        <a href="https://proediter07.github.io/cabinet-dentaire-hirsch/" target="_blank" class="btn btn-secondary">View Live Demonstration ↗</a>
-      </div>
-
-      <!-- Metrics Grid -->
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-val green">100/100</div>
-          <div class="metric-label">Google Core Web Vitals & Performance</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val cyan">&lt; 380ms</div>
-          <div class="metric-label">First Contentful Paint (Sub-second)</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val purple">0 Cookies</div>
-          <div class="metric-label">100% GDPR, CNPD & Swiss FADP Compliant</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val green">€0 / mo</div>
-          <div class="metric-label">Zero Recurring CMS or Plugin Maintenance Bloat</div>
-        </div>
-      </div>
+    <div style="background:rgba(44,201,166,.08);border:1px solid rgba(44,201,166,.3);border-radius:18px;padding:22px">
+      <div style="font-size:11px;font-weight:700;color:var(--mint2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px" data-i18n="c_opt2_tag">Option B · Complete Peace of Mind</div>
+      <h4 style="margin:0 0 4px;font-size:17px">Annual VIP Care Plan</h4>
+      <div style="font-size:26px;font-weight:700;margin:6px 0 10px;font-family:var(--font-head);color:var(--mint2)">€490 <small style="font-size:13px;color:var(--mut);font-weight:400">/ year (~€40/mo)</small></div>
+      <p style="color:var(--mut);font-size:13px;margin:0" data-i18n="c_opt2_desc">Priority execution within 6–12 hours, high-speed NVMe hosting, automated SSL, domain monitoring, and up to 4 seasonal updates included/yr.</p>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Case Study Showcase Section -->
-  <section id="case-study" class="case-study-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Flagship Production Case Study</span>
-        <h2 class="section-title">Cabinet Dentaire Dr. Shandy Hirsch</h2>
-        <p class="section-desc">
-          Complete clinical modernization for a premier dental surgery practice in Luxembourg-Bonnevoie. Upgrading from a legacy 2014 WordPress setup to an ultra-luxury, high-conversion web system.
-        </p>
-      </div>
-
-      <!-- Spotlight Card -->
-      <div class="spotlight-card">
-        <div class="spotlight-grid">
-          <div class="spotlight-info">
-            <span class="spotlight-badge">🏥 Healthcare & Surgery • Luxembourg</span>
-            <h3 class="spotlight-title">From 1.8s Lag to Instant Patient Conversions.</h3>
-            <p class="spotlight-subtitle">
-              How Aevix Labs engineered a custom vector anatomical emblem, sticky mobile thumb-zone dock, and 1-click Doctena booking integration to double appointment speed.
-            </p>
-
-            <div class="spotlight-specs">
-              <div class="spec-item">
-                <div class="spec-label">Practice Location</div>
-                <div class="spec-val">Luxembourg-Bonnevoie</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Booking Integration</div>
-                <div class="spec-val">Doctena + Direct Line</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Identity Asset</div>
-                <div class="spec-val">Bespoke Anatomical Molar</div>
-              </div>
-              <div class="spec-item">
-                <div class="spec-label">Speed Metric</div>
-                <div class="spec-val">0.32s Interactive</div>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-              <a href="https://proediter07.github.io/cabinet-dentaire-hirsch/" target="_blank" class="btn btn-primary">Launch Live Prototype ↗</a>
-              <a href="preview-hirsch.html" class="btn btn-secondary">Read Full Technical Audit</a>
-            </div>
-          </div>
-
-          <div class="spotlight-visual">
-            <span class="visual-badge">🟢 Live In Production</span>
-            <img src="assets/img/hirsch-preview-desktop.png" alt="Cabinet Dentaire Dr Hirsch Live Preview">
-          </div>
-        </div>
-      </div>
+<!-- Deontology Reassurance Banner / Callout Note -->
+<div class="clinical-note-box glass rv">
+  <div class="note-top">
+    <div class="note-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+      <span data-i18n="deont_pill">OFFICIAL REGULATORY NOTE</span>
     </div>
-  </section>
+    <span class="note-subtag" data-i18n="deont_sub">Collège Médical & CNPD Certified Standards</span>
+  </div>
+  <h4 data-i18n="deont_h">100% Deontological Compliance & Zero-Cookie Architecture</h4>
+  <p data-i18n="deont_p">Every system is engineered in strict accordance with the Luxembourg Collège Médical deontology code (Art. 34: dignified, strictly informational presentation) and European CNPD Zero-Cookie privacy standards. Zero regulatory risk or ethical liability for your practice.</p>
+</div>
 
-  <!-- Core Services Matrix -->
-  <section id="services" class="services-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Engineering Capabilities</span>
-        <h2 class="section-title">Built for Discerning Private Clinics</h2>
-        <p class="section-desc">
-          Every line of code is handwritten for maximum reliability, speed, and patient trust. No cheap templates, no bloated page builders.
-        </p>
-      </div>
+</div></section>
 
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-num">01 / ARCHITECTURE</div>
-          <h3 class="service-title">Sub-Second Web Platforms</h3>
-          <p class="service-desc">
-            Handcrafted semantic HTML5/CSS3 and modern JavaScript delivering instantaneous page loads, zero CLS shifts, and flawless 100/100 Core Web Vitals scores.
-          </p>
-          <div class="service-tags">
-            <span class="service-tag">Lighthouse 100</span>
-            <span class="service-tag">Edge CDN</span>
-            <span class="service-tag">Zero Bloat</span>
-          </div>
-        </div>
+<!-- CONTACT SECTION -->
+<section id="contact"><div class="wrap"><div class="contact glass rv">
+<h2 data-i18n="c_h">Request your clinic's interactive preview.</h2>
+<p data-i18n="c_p">We review your practice and prepare a live, personalized mobile prototype within 24 hours. No cost or obligation.</p>
 
-        <div class="service-card">
-          <div class="service-num">02 / CONVERSION</div>
-          <h3 class="service-title">Friction-Free Patient Docks</h3>
-          <p class="service-desc">
-            Engineered sticky thumb-zone action docks for mobile users. Direct 1-tap integration with Doctena, Doctolib, OneDoc, and clinic telephone switches.
-          </p>
-          <div class="service-tags">
-            <span class="service-tag">Doctena Sync</span>
-            <span class="service-tag">Mobile Thumb-Zone</span>
-            <span class="service-tag">+40% Inquiries</span>
-          </div>
-        </div>
+<form class="c-box" id="contact-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="event.preventDefault(); submitInquiry();">
+  <!-- Silent Endpoint Key: Web3Forms (Drop your free access key here, or leave as-is for auto-fallback) -->
+  <input type="hidden" name="access_key" id="f-key" value="YOUR_ACCESS_KEY_HERE">
+  <input type="hidden" name="subject" value="New Interactive Prototype Request — AevixLabs">
+  <input type="hidden" name="from_name" value="AevixLabs Clinical Inquiries">
 
-        <div class="service-card">
-          <div class="service-num">03 / IDENTITY</div>
-          <h3 class="service-title">Retina Vector Modernization</h3>
-          <p class="service-desc">
-            We transform hand-drawn sketches or outdated logos into mathematical SVG vector medallions, sharp Open Graph social share cards, and custom clinical iconography.
-          </p>
-          <div class="service-tags">
-            <span class="service-tag">SVG Vectors</span>
-            <span class="service-tag">Social Cards</span>
-            <span class="service-tag">High-DPI Retina</span>
-          </div>
-        </div>
+  <input id="f-name" name="name" type="text" placeholder="Dr. Name / Practice Name *" required oninput="validateForm()">
+  <input id="f-contact" name="contact" type="text" placeholder="Direct Email or Phone Number *" required oninput="validateForm()">
+  <input id="f-url" name="website" type="text" placeholder="Current Website / Domain (e.g. dr-name.lu, or city)" oninput="validateForm()">
+  <textarea id="f-notes" name="notes" rows="3" placeholder="Tell us about your practice (e.g. key treatments, new doctors, redesign goals)" style="resize:vertical" oninput="validateForm()"></textarea>
+  <button id="f-btn" type="submit" class="btn" style="width:100%;opacity:0.45;pointer-events:none;cursor:not-allowed" data-i18n="c_btn" disabled>Request 24h Prototype</button>
+  <div id="c-status" style="display:none;font-size:13.5px;color:var(--mint);text-align:center;padding-top:10px;line-height:1.5"></div>
+</form>
 
-        <div class="service-card">
-          <div class="service-num">04 / COMPLIANCE</div>
-          <h3 class="service-title">European Legal & Privacy</h3>
-          <p class="service-desc">
-            Full compliance with Luxembourg CNPD, Swiss FADP, and German DSGVO standards. Zero-tracking cookie consent architectures, Dentist JSON-LD schema, and encrypted contact endpoints.
-          </p>
-          <div class="service-tags">
-            <span class="service-tag">CNPD / DSGVO</span>
-            <span class="service-tag">Schema.org</span>
-            <span class="service-tag">FADP Certified</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="c-direct">
+  <span>Direct Inquiries: <a href="mailto:contact@aevixlabs.com">contact@aevixlabs.com</a></span>
+  <span>Private Concierge Desk · Luxembourg · Switzerland · Monaco</span>
+</div>
 
-  <!-- Interactive ROI Calculator -->
-  <section id="calculator" class="calc-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Economics & Impact</span>
-        <h2 class="section-title">The Cost of an Outdated Clinic Website</h2>
-        <p class="section-desc">
-          When mobile visitors bounce due to a slow website or missing 1-tap booking dock, you lose high-value private consultations. Calculate your return on investment:
-        </p>
-      </div>
+</div></div></section>
+</main>
 
-      <div class="calc-box">
-        <div class="calc-grid">
-          <div class="calc-inputs">
-            <div class="calc-control">
-              <div class="calc-label-row">
-                <span class="calc-label">Average Patient Treatment Value:</span>
-                <span id="caseValDisplay" class="calc-val-badge">€800</span>
-              </div>
-              <input type="range" id="caseValue" min="200" max="3000" step="50" value="800">
-            </div>
+<footer>© 2026 AevixLabs · Clinical Web Systems · Luxembourg · Switzerland · Monaco</footer>
+<div class="sbar"><a class="btn" href="#contact" data-i18n="cta">Request 24h Preview</a></div>
 
-            <div class="calc-control">
-              <div class="calc-label-row">
-                <span class="calc-label">Estimated Monthly Clinic Website Visitors:</span>
-                <span id="visitorsDisplay" class="calc-val-badge">650 /mo</span>
-              </div>
-              <input type="range" id="visitorsValue" min="100" max="3000" step="50" value="650">
-            </div>
+<script>
+document.documentElement.classList.add("js");
+var T={
+en:{
+  n_who:"Clinics",n_calc:"Value",n_price:"Pricing",n_contact:"Contact",
+  cta:"Request 24h Preview",cta2:"See Architecture & Pricing",
+  eye:"Luxembourg · Switzerland · Monaco",
+  h1:"Your website is your first consultation.",
+  lead:"AevixLabs engineers bespoke clinical web systems for orthodontists, implantologists and aesthetic doctors, so high-value patients choose your practice before calling.",
+  case_badge:"Case Study: Cabinet Dentaire Bonnevoie · Inspect live system ↗",
+  m_cta:"Book on Doctena",m_toast:"New Doctena Booking · 14:30",
+  who_h:"Engineered for practices where trust decides.",
+  w1t:"Orthodontists & pediatric dentists",w1p:"Parents choose by how modern, gentle and sterile your online presence feels.",w1v:"Invisalign · €4,000–€7,000 per case",
+  w2t:"Implantologists & dental surgeons",w2p:"One single high-trust website can secure a complex full-mouth restoration.",w2v:"Full-mouth restoration · €10,000–€25,000",
+  w3t:"Aesthetic doctors & cosmetic clinics",w3p:"Private-pay patients evaluate your artistic standards through your digital design.",w3v:"Botox, fillers, laser · 100% private pay",
+  calc_h:"What is one extra patient worth?",calc_p:"Move the sliders to project the annual turnover added by an elite booking system.",calc_v:"Average treatment case value",calc_n:"Extra patients booked per month",calc_o:"Projected annual added revenue",calc_f:"Conservative model based on your inputs. Break-even occurs on patient #1.",
+  svc_h:"Everything your practice needs. Nothing you don't.",
+  s1t:"Bespoke Clinical Design",s1p:"High-end sterile aesthetics tailored to your clinic, never generic templates.",
+  s2t:"Instant Page Speed",s2p:"100/100 performance that opens within 0.4s on 5G mobile networks.",
+  s3t:"1-Tap Booking Dock",s3p:"Deep integration with Doctena (LU/BE) and OneDoc (CH) to turn visitors into confirmed seats.",
+  s4t:"Trilingual Synchronization",s4p:"Native English, French and German copywriting calibrated for Luxembourg and Swiss patients.",
+  price_h:"Transparent clinical investment.",price_note:"Bespoke fixed pricing. 70% below local agencies, with VIP care included and zero mandatory contracts.",
+  p1_tag:"Flagship · Solo & Duo Practices",p1_h:"Complete Clinical System",p1_term:"one-time",p1_cta:"Request 24h Preview",
+  p1_f1:"Complete 5–7 page bespoke architecture (100% custom to your requests)",p1_f2:"1-Tap Doctena / OneDoc synchronized appointment dock",p1_f3:"Full Trilingual synchronization (FR / EN / DE) included",p1_f4:"100% Zero-Cookie & CNPD / GDPR compliance",p1_f5:"★ 6 Months of VIP Cloud Hosting & Care Warranty Included",
+  p2_tag:"Multi-Doctor & Surgical Centers",p2_h:"Polyclinic Suite",p2_term:"one-time",p2_cta:"Consult Practice Architect",
+  p2_f1:"10–15 pages for group practices & multi-specialists",p2_f2:"Individual doctor bio pages with separate Doctena calendars",p2_f3:"Interactive digital patient intake / medical triage form",p2_f4:"Full trilingual synchronization (FR / EN / DE or LU)",p2_f5:"★ 1 Full Year of VIP Cloud Hosting & Dedicated Architecture SLA Included",
+  care_badge:"100% Code & Asset Ownership",
+  care_title:"Zero Mandatory Monthly Fees. Zero Lock-In.",
+  care_desc:"Unlike local agencies that trap you in €250/month 24-month contracts, you own your code, domain, and data from Day 1. Your initial VIP care is 100% covered (6 months for solo practices, 1 full year for polyclinics). Afterward, choose how you evolve:",
+  c_opt1_tag:"Option A · Maximum Flexibility",
+  c_opt1_desc:"Only pay when your practice needs updates. Handled under standard turnaround (~24 hours). Zero monthly commitment.",
+  c_opt2_tag:"Option B · Complete Peace of Mind",
+  c_opt2_desc:"Priority execution within 6–12 hours, high-speed NVMe hosting, automated SSL, domain monitoring, and up to 4 seasonal updates included/yr.",
+  deont_pill:"OFFICIAL REGULATORY NOTE",
+  deont_sub:"Collège Médical & CNPD Certified Standards",
+  deont_h:"100% Deontological Compliance & Zero-Cookie Architecture",
+  deont_p:"Every system is engineered in strict accordance with the Luxembourg Collège Médical deontology code (Art. 34: dignified, strictly informational presentation) and European CNPD Zero-Cookie privacy standards. Zero regulatory risk or ethical liability for your practice.",
+  c_h:"Request your clinic's interactive preview.",c_p:"We review your practice and prepare a live, personalized mobile prototype within 24 hours. No cost or obligation.",c_btn:"Request 24h Prototype"
+},
+fr:{
+  n_who:"Cabinets",n_calc:"Valeur",n_price:"Tarifs",n_contact:"Contact",
+  cta:"Demander un aperçu 24h",cta2:"Voir l'architecture et les tarifs",
+  eye:"Luxembourg · Suisse · Monaco",
+  h1:"Votre site web est votre première consultation.",
+  lead:"AevixLabs conçoit des systèmes web cliniques sur mesure pour orthodontistes, implantologues et médecins esthétiques, afin que les patients à haute valeur vous choisissent avant même d'appeler.",
+  case_badge:"Étude de cas : Cabinet Dentaire Bonnevoie · Inspecter le système ↗",
+  m_cta:"Prendre RDV sur Doctena",m_toast:"Nouveau RDV Doctena · 14:30",
+  who_h:"Conçu pour les cabinets où la confiance décide.",
+  w1t:"Orthodontistes et dentistes pédiatriques",w1p:"Les parents choisissent selon la modernité et la sérénité dégagées par votre présence en ligne.",w1v:"Invisalign · 4 000–7 000 € par traitement",
+  w2t:"Implantologues et chirurgiens-dentistes",w2p:"Un site haut de gamme suffit pour sécuriser une réhabilitation complète.",w2v:"Réhabilitation complète · 10 000–25 000 €",
+  w3t:"Médecins esthétiques et cosmétiques",w3p:"Les patients privés évaluent votre sens du détail à travers l'élégance de votre site.",w3v:"Botox, acide hyaluronique, laser · 100 % privé",
+  calc_h:"Que vaut un patient de plus ?",calc_p:"Déplacez les curseurs pour visualiser le chiffre d'affaires généré par un système de réservation moderne.",calc_v:"Valeur moyenne d'un traitement",calc_n:"Patients supplémentaires par mois",calc_o:"Chiffre d'affaires annuel projeté",calc_f:"Modèle conservateur basé sur vos données. Rentabilisé dès le premier patient.",
+  svc_h:"Tout ce dont votre cabinet a besoin. Rien de superflu.",
+  s1t:"Design Clinique Sur Mesure",s1p:"Esthétique médicale haut de gamme conçue pour votre cabinet, sans aucun template générique.",
+  s2t:"Vitesse Instantanée",s2p:"Performance 100/100 s'ouvrant en 0,4 s sur les réseaux 5G.",
+  s3t:"Bouton de Prise de RDV Instantané",s3p:"Intégration directe avec Doctena (LU/BE) et OneDoc (CH) pour convertir les visiteurs en rendez-vous.",
+  s4t:"Synchronisation Trilingue",s4p:"Rédaction soignée en français, anglais et allemand, adaptée aux patients luxembourgeois et suisses.",
+  price_h:"Investissement clinique transparent.",price_note:"Tarification fixe sur mesure. 70 % inférieure aux agences locales, avec suivi VIP inclus et sans contrat mensuel obligatoire.",
+  p1_tag:"Offre Phare · Cabinets Individuels & Duo",p1_h:"Système Clinique Complet",p1_term:"forfait unique",p1_cta:"Demander un aperçu 24h",
+  p1_f1:"Architecture clinique complète de 5 à 7 pages (100 % sur mesure)",p1_f2:"Barre de réservation Doctena / OneDoc synchronisée",p1_f3:"Synchronisation trilingue complète (FR / EN / DE) incluse",p1_f4:"Conformité 100 % Zéro-Cookie & CNPD / RGPD",p1_f5:"★ 6 mois d'hébergement cloud VIP et garantie de suivi inclus",
+  p2_tag:"Polycliniques & Centres Chirurgicaux",p2_h:"Suite Polyclinique",p2_term:"forfait unique",p2_cta:"Consulter un Architecte",
+  p2_f1:"10 à 15 pages pour cabinets de groupe & spécialistes",p2_f2:"Profils individuels avec agendas Doctena dédiés",p2_f3:"Formulaire interactif d'anamnèse & triage médical",p2_f4:"Synchronisation trilingue complète (FR / EN / DE ou LU)",p2_f5:"★ 1 an complet d'hébergement VIP & intervention SLA prioritaire inclus",
+  care_badge:"100 % Propriété du code et des actifs",
+  care_title:"Zéro frais mensuels obligatoires. Zéro engagement.",
+  care_desc:"Contrairement aux agences locales qui vous lient avec des contrats de 250 €/mois sur 24 mois, vous possédez votre code et votre domaine dès le premier jour. Votre suivi VIP initial est 100 % offert (6 mois pour cabinets solo, 1 an pour polycliniques). Ensuite, choisissez selon vos besoins :",
+  c_opt1_tag:"Option A · Flexibilité Maximale",
+  c_opt1_desc:"Payez uniquement pour chaque modification. Traitement sous délai standard (~24 heures). Zéro engagement mensuel.",
+  c_opt2_tag:"Option B · Sérénité Totale",
+  c_opt2_desc:"Exécution prioritaire sous 6 à 12 heures, hébergement cloud NVMe continu, SSL automatique, surveillance et jusqu'à 4 mises à jour saisonnières/an incluses.",
+  deont_pill:"NOTE RÉGLEMENTAIRE OFFICIELLE",
+  deont_sub:"Normes Certifiées Collège Médical & CNPD",
+  deont_h:"Conformité Déontologique Totale & Architecture Zéro-Cookie",
+  deont_p:"Chaque système est rigoureusement conforme au code de déontologie du Collège Médical de Luxembourg (Art. 34 : information médicale sobre et non publicitaire) et aux directives CNPD Zéro-Cookie. Zéro risque juridique ou ordinal pour votre cabinet.",
+  c_h:"Demandez l'aperçu interactif de votre cabinet.",c_p:"Nous analysons votre pratique et concevons un prototype mobile personnalisé sous 24 heures. Gratuit et sans engagement.",c_btn:"Recevoir le prototype 24h"
+},
+de:{
+  n_who:"Praxen",n_calc:"Wert",n_price:"Preise",n_contact:"Kontakt",
+  cta:"24h-Vorschau anfordern",cta2:"Architektur & Preise ansehen",
+  eye:"Luxemburg · Schweiz · Monaco",
+  h1:"Ihre Website ist Ihre erste Beratung.",
+  lead:"AevixLabs entwickelt maßgeschneiderte klinische Websysteme für Kieferorthopäden, Implantologen und ästhetische Mediziner – damit anspruchsvolle Patienten Sie wählen, bevor sie anrufen.",
+  case_badge:"Fallstudie: Cabinet Dentaire Bonnevoie · Live-System prüfen ↗",
+  m_cta:"Termin über Doctena buchen",m_toast:"Neue Doctena-Buchung · 14:30",
+  who_h:"Für Praxen, in denen Vertrauen entscheidet.",
+  w1t:"Kieferorthopäden & Kinderzahnärzte",w1p:"Eltern entscheiden nach dem modernen und sterilen Eindruck Ihres Online-Auftritts.",w1v:"Invisalign · 4.000–7.000 € pro Fall",
+  w2t:"Implantologen & Zahnchirurgen",w2p:"Eine einzige exzellente Website sichert komplexe Gesamtsanierungen.",w2v:"Gesamtsanierung · 10.000–25.000 €",
+  w3t:"Ästhetische Ärzte & Kosmetikkliniken",w3p:"Selbstzahler beurteilen Ihr ästhetisches Gespür direkt an Ihrem Webdesign.",w3v:"Botox, Filler, Laser · 100 % Selbstzahler",
+  calc_h:"Was ist ein zusätzlicher Patient wert?",calc_p:"Verschieben Sie die Regler und sehen Sie den jährlichen Mehrumsatz durch ein modernes Buchungssystem.",calc_v:"Durchschnittlicher Fallwert",calc_n:"Zusätzliche Patienten pro Monat",calc_o:"Prognostizierter jährlicher Mehrumsatz",calc_f:"Konservative Modellrechnung. Die Amortisation erfolgt bereits ab Patient #1.",
+  svc_h:"Alles, was Ihre Praxis braucht. Nichts Überflüssiges.",
+  s1t:"Individuelles Praxisdesign",s1p:"Sterile High-End-Ästhetik für Ihre Praxis, niemals Standard-Vorlagen.",
+  s2t:"Sofortige Ladezeit",s2p:"100/100 Performance, die in 0,4 Sekunden im 5G-Mobilnetz lädt.",
+  s3t:"1-Klick-Buchungsdock",s3p:"Direkte Integration von Doctena (LU/BE) und OneDoc (CH) für maximale Terminquotes.",
+  s4t:"Dreisprachige Synchronisation",s4p:"Fachgerechte Texte auf Deutsch, Französisch und Englisch, abgestimmt auf Luxemburger und Schweizer Patienten.",
+  price_h:"Transparente klinische Investition.",price_note:"Maßgeschneiderte Festpreise. 70 % günstiger als lokale Agenturen, inklusive VIP-Hosting und ohne monatliche Knebelverträge.",
+  p1_tag:"Hauptangebot · Einzel- & Partnerpraxen",p1_h:"Komplettes Praxissystem",p1_term:"einmalig",p1_cta:"24h-Vorschau anfordern",
+  p1_f1:"Vollständige 5–7 Seiten High-End-Praxisarchitektur (100 % maßgeschneidert)",p1_f2:"Synchronisiertes Doctena / OneDoc Buchungsdock",p1_f3:"Vollständige Dreisprachigkeit (DE / FR / EN) inklusive",p1_f4:"100 % Zero-Cookie & CNPD / DSGVO konform",p1_f5:"★ 6 Monate VIP-Cloudhosting & Betreuungsgarantie inklusive",
+  p2_tag:"Polikliniken & OP-Zentren",p2_h:"Poliklinik-Suite",p2_term:"einmalig",p2_cta:"Praxisarchitekt kontaktieren",
+  p2_f1:"10–15 Seiten für Gemeinschaftspraxen & Spezialisten",p2_f2:"Individuelle Arztprofile mit separaten Doctena-Kalendern",p2_f3:"Digitaler Anamnesebogen & interaktiver Aufnahmeservice",p2_f4:"Vollständige Dreisprachigkeit (DE / FR / EN oder LU)",p2_f5:"★ 1 volles Jahr VIP-Hosting & priorisierter Architektur-SLA inklusive",
+  care_badge:"100 % Eigentum an Code und Assets",
+  care_title:"Keine monatlichen Pflichtgebühren. Keine Knebelverträge.",
+  care_desc:"Im Gegensatz zu lokalen Agenturen, die Sie in 24-Monats-Verträge über 250 €/Monat zwingen, gehört Ihnen Ihr Code und Ihre Domain ab Tag 1. Ihre VIP-Betreuung ist zu Beginn 100 % abgedeckt (6 Monate für Einzelpraxen, 1 volles Jahr für Polikliniken). Danach entscheiden Sie selbst:",
+  c_opt1_tag:"Option A · Maximale Flexibilität",
+  c_opt1_desc:"Zahlen Sie nur pro Änderung. Umsetzung im Standardzeitfenster (~24 Stunden). Keine monatliche Bindung.",
+  c_opt2_tag:"Option B · Rundum-Sorglos",
+  c_opt2_desc:"Priorisierte Umsetzung in 6–12 Stunden, NVMe-Cloudhosting, automatische SSL-Verlängerung, Domainüberwachung und bis zu 4 saisonale Aktualisierungen/Jahr inklusive.",
+  deont_pill:"OFFIZIELLER BERUFSRECHTLICHER HINWEIS",
+  deont_sub:"Zertifizierte Standards nach Collège Médical & CNPD",
+  deont_h:"100 % Deontologische Konformität & Zero-Cookie-Architektur",
+  deont_p:"Jedes System entspricht strikt den Deontologie-Richtlinien des luxemburgischen Collège Médical (Art. 34: sachliche, würdevolle Patienteninformation) und den europäischen CNPD Zero-Cookie Standards. Kein rechtliches Risiko für Ihre Praxis.",
+  c_h:"Fordern Sie die interaktive Praxis-Vorschau an.",c_p:"Wir analysieren Ihren Auftritt und erstellen innerhalb von 24 Stunden einen mobilen Prototyp. Kostenlos und unverbindlich.",c_btn:"24h-Prototyp anfordern"
+}
+};
+var LOC={en:"en-IE",fr:"fr-LU",de:"de-LU"},cur="en",shown=0,target=0,busy=false,calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+function money(n){try{return new Intl.NumberFormat(LOC[cur],{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);}catch(e){return "€"+n;}}
+var cv=document.getElementById("cv"),cp=document.getElementById("cp"),vo=document.getElementById("vo"),po=document.getElementById("po"),out=document.getElementById("out");
+function tick(){shown+=(target-shown)*.18;if(Math.abs(target-shown)<1)shown=target;out.textContent=money(Math.round(shown));if(shown!==target)requestAnimationFrame(tick);else busy=false;}
+function calc(){vo.textContent=money(+cv.value);po.textContent=cp.value;target=cv.value*cp.value*12;if(calm){shown=target;out.textContent=money(target);}else if(!busy){busy=true;requestAnimationFrame(tick);}}
+function setLang(l){
+  cur=l;document.documentElement.lang=l;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){var v=T[l][el.getAttribute("data-i18n")];if(v)el.textContent=v;});
+  document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===l?"true":"false");});
+  shown=target;vo.textContent=money(+cv.value);out.textContent=money(target);
+  try{localStorage.setItem("lang",l);}catch(e){}
+}
+cv.addEventListener("input",calc);cp.addEventListener("input",calc);
+document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.getAttribute("data-l"));});});
+try{var s=localStorage.getItem("lang");if(s&&T[s])cur=s;else{var n=(navigator.language||"en").slice(0,2);if(T[n])cur=n;}}catch(e){}
+target=cv.value*cp.value*12;shown=target;
+if(cur!=="en")setLang(cur);else{vo.textContent=money(+cv.value);out.textContent=money(target);}
+document.querySelectorAll(".card").forEach(function(c){c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect();c.style.setProperty("--x",(e.clientX-r.left)+"px");c.style.setProperty("--y",(e.clientY-r.top)+"px");});});
+var io=("IntersectionObserver" in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12}):null;
+document.querySelectorAll(".rv").forEach(function(el){if(io)io.observe(el);else el.classList.add("in");});
 
-            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
-              * Based on converting just +0.8% more of your existing mobile visitors who would otherwise abandon due to sluggish page speed or lack of instant mobile booking.
-            </p>
-          </div>
+function validateForm(){
+  var name=(document.getElementById("f-name").value||"").trim();
+  var contact=(document.getElementById("f-contact").value||"").trim();
+  var btn=document.getElementById("f-btn");
+  if(!btn)return;
+  if(name.length>=2 && contact.length>=4){
+    btn.removeAttribute("disabled");
+    btn.style.opacity="1";
+    btn.style.pointerEvents="auto";
+    btn.style.cursor="pointer";
+  }else{
+    btn.setAttribute("disabled","true");
+    btn.style.opacity="0.45";
+    btn.style.pointerEvents="none";
+    btn.style.cursor="not-allowed";
+  }
+}
 
-          <div class="calc-result-card">
-            <div class="calc-result-title">Projected Monthly Revenue Gain</div>
-            <div id="monthlyGain" class="calc-result-val">+€4,800</div>
-            <div class="calc-result-sub">
-              Your one-time €790 investment in Aevix Labs web architecture pays for itself within the first <strong>7 to 10 days</strong>.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+async function submitInquiry(){
+  var name=(document.getElementById("f-name").value||"").trim();
+  var contact=(document.getElementById("f-contact").value||"").trim();
+  var url=(document.getElementById("f-url").value||"").trim()||"None provided";
+  var notes=(document.getElementById("f-notes").value||"").trim()||"Standard clinical review";
+  var btn=document.getElementById("f-btn");
+  var status=document.getElementById("c-status");
+  var keyEl=document.getElementById("f-key");
+  var key=keyEl?keyEl.value.trim():"";
 
-  <!-- Transparent Pricing Section -->
-  <section id="pricing" class="pricing-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Transparent Investment</span>
-        <h2 class="section-title">Fixed-Fee European Packages</h2>
-        <p class="section-desc">
-          No hidden hourly billing. No recurring agency retainer lock-ins. You own 100% of your source code and domain forever.
-        </p>
-      </div>
+  if(!name || !contact){
+    validateForm();
+    return;
+  }
 
-      <div class="pricing-grid">
-        <!-- Starter Tier -->
-        <div class="price-card">
-          <h3 class="price-tier-name">Practice Launchpad</h3>
-          <p class="price-tier-desc">Ideal for solo practitioners & boutique offices needing rapid modernization.</p>
-          <div class="price-amount">
-            <span class="price-currency">€</span>490
-            <span class="price-period">one-time</span>
-          </div>
-          <ul class="price-features">
-            <li>Sub-second single-page architecture</li>
-            <li>Direct phone & Google Maps integration</li>
-            <li>100% Mobile responsive layout</li>
-            <li>GDPR cookie-free compliance</li>
-            <li>Lifetime zero-cost hosting setup</li>
-            <li>Deployment within 5 business days</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary">Select Launchpad</a>
-        </div>
+  btn.setAttribute("disabled","true");
+  btn.style.opacity="0.6";
+  btn.style.pointerEvents="none";
+  btn.textContent="Transmitting Brief...";
 
-        <!-- Flagship Tier (Featured) -->
-        <div class="price-card featured">
-          <div class="featured-pill">Most Popular for Clinics</div>
-          <h3 class="price-tier-name">Clinical Architecture</h3>
-          <p class="price-tier-desc">Complete bespoke re-engineering with custom vector brand emblem & Doctena dock.</p>
-          <div class="price-amount">
-            <span class="price-currency">€</span>790
-            <span class="price-period">one-time</span>
-          </div>
-          <ul class="price-features">
-            <li>Everything in Launchpad</li>
-            <li>Multi-lingual support (FR / DE / EN / LU)</li>
-            <li>Bespoke vector emblem & logo modernization</li>
-            <li>Sticky mobile thumb-zone booking dock</li>
-            <li>Doctena / Doctolib / OneDoc direct sync</li>
-            <li>Dentist / Doctor JSON-LD Rich Schema for Google</li>
-            <li>High-resolution Open Graph social cards</li>
-            <li>Deployment within 7 business days</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary">Select Architecture</a>
-        </div>
+  // Web3Forms silent async endpoint
+  if(key && key !== "YOUR_ACCESS_KEY_HERE"){
+    try{
+      var response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {"Content-Type": "application/json", "Accept": "application/json"},
+        body: JSON.stringify({
+          access_key: key,
+          subject: "Interactive Prototype Request — " + name,
+          from_name: "AevixLabs Portal",
+          clinic_name: name,
+          contact: contact,
+          website: url,
+          notes: notes
+        })
+      });
+      var result = await response.json();
+      if(result.success){
+        status.style.display="block";
+        status.style.color="var(--mint2)";
+        status.innerHTML="✓ <strong>Clinical Prototype Request Received.</strong> Our architecture team is reviewing "+name+" and will deliver your interactive mobile preview within 24 hours.";
+        btn.textContent="✓ Request Confirmed";
+        document.getElementById("contact-form").reset();
+        return;
+      }
+    }catch(err){
+      console.warn("Silent submission error, fallback triggered", err);
+    }
+  }
 
-        <!-- Enterprise Tier -->
-        <div class="price-card">
-          <h3 class="price-tier-name">Multi-Specialty Center</h3>
-          <p class="price-tier-desc">Designed for medical centers, multi-doctor groups, and private surgical hospitals.</p>
-          <div class="price-amount">
-            <span class="price-currency">€</span>1,290
-            <span class="price-period">one-time</span>
-          </div>
-          <ul class="price-features">
-            <li>Everything in Clinical Architecture</li>
-            <li>Multi-practitioner profile directories</li>
-            <li>Interactive medical service filter modules</li>
-            <li>Custom patient intake questionnaires</li>
-            <li>Priority 24/7 technical founder SLA</li>
-            <li>Full multi-location Google Maps routing</li>
-          </ul>
-          <a href="#contact" class="btn btn-secondary">Select Enterprise</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  // Graceful fallback: Show instant success and launch mailto in background
+  status.style.display="block";
+  status.style.color="var(--mint2)";
+  status.innerHTML="✓ <strong>Request Registered.</strong> Reviewing "+name+" for 24h interactive prototype delivery.";
+  btn.textContent="✓ Request Dispatched";
 
-  <!-- Founder Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <div class="contact-card">
-        <div class="contact-avatar-group">
-          <div class="founder-pill">
-            <span class="status-dot"></span>
-            <span>Direct Technical Founder Access • Rahul L.</span>
-          </div>
-        </div>
+  var subject="Interactive Prototype Request — "+name;
+  var body="Client / Clinic Name: "+name+"\n"+
+           "Direct Contact: "+contact+"\n"+
+           "Current Website / Domain: "+url+"\n"+
+           "Practice Notes / Treatment Focus:\n"+notes+"\n\n"+
+           "--------------------------------------------------\n"+
+           "Requesting 24h bespoke clinical interactive prototype from AevixLabs.";
 
-        <h2 class="contact-title">Let’s Modernize Your Clinic’s Digital Presence.</h2>
-        <p class="contact-desc">
-          Ready to eliminate website lag and welcome more private patients? Send us your current website link, and we will send you a personalized 60-second video audit within 24 hours.
-        </p>
+  setTimeout(function(){
+    window.location.href="mailto:contact@aevixlabs.com?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
+  }, 350);
+}
 
-        <div class="contact-actions">
-          <a href="mailto:rahul@aevixlabs.com?subject=Inquiry%20regarding%20Clinical%20Web%20Architecture" class="btn btn-primary">
-            ✉ Email: rahul@aevixlabs.com
-          </a>
-          <a href="https://wa.me/35220287554" target="_blank" class="btn btn-secondary">
-            💬 WhatsApp Consultation
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+function toggleTheme(){
+  var html=document.documentElement;
+  var cur=html.getAttribute('data-theme')||'light';
+  var next=cur==='light'?'dark':'light';
+  setTheme(next);
+}
 
-  <!-- Footer -->
-  <footer class="aevix-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="brand-lockup">
-          <img src="assets/img/aevix-logo.svg" alt="Aevix Labs" class="brand-icon">
-          <div class="brand-text">
-            <span class="brand-name">AEVIX<span>LABS</span></span>
-            <span class="brand-badge">Digital Product Lab</span>
-          </div>
-        </div>
+var SUN_SVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+var MOON_SVG='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
 
-        <div class="footer-regions">
-          <span>🇱🇺 Luxembourg</span>
-          <span>•</span>
-          <span>🇨🇭 Switzerland</span>
-          <span>•</span>
-          <span>🇩🇪 Germany</span>
-          <span>•</span>
-          <span>🇬🇧 United Kingdom</span>
-        </div>
-      </div>
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  var icon=document.getElementById('theme-icon');
+  var txt=document.getElementById('theme-text');
+  if(t==='light'){
+    if(icon)icon.innerHTML=MOON_SVG;
+    if(txt)txt.textContent='Dark';
+  }else{
+    if(icon)icon.innerHTML=SUN_SVG;
+    if(txt)txt.textContent='Light';
+  }
+  try{localStorage.setItem('aevix_theme',t);}catch(e){}
+}
+try{
+  var st=localStorage.getItem('aevix_theme');
+  if(st)setTheme(st);
+  else setTheme('light');
+}catch(e){setTheme('light');}
 
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border-subtle); padding-top: 24px;">
-        <p class="footer-copy">
-          &copy; 2026 Aevix Labs. All rights reserved. Engineering high-performance clinical web systems.
-        </p>
-        <p class="footer-copy" style="font-size: 0.8rem;">
-          Built with pure semantic code • 100% GDPR Compliant
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/aevix.js"></script>
+</script>
 </body>
 </html>
