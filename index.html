@@ -216,7 +216,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;text-a
 <a class="brand" href="#top" aria-label="AevixLabs"><svg viewBox="0 0 64 64"><use href="#m"/></svg><span class="wm"><b>Aevix</b><i>Labs</i></span></a>
 <nav class="links"><a href="#who" data-i18n="n_who">Clinics</a><a href="#calc" data-i18n="n_calc">Value</a><a href="#pricing" data-i18n="n_price">Pricing</a><a href="#contact" data-i18n="n_contact">Contact</a></nav>
 <div class="right">
-  <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="fr" aria-pressed="false">FR</button><button data-l="de" aria-pressed="false">DE</button></div>
+  <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="fr" aria-pressed="false">FR</button><button data-l="de" aria-pressed="false">DE</button><button data-l="nl" aria-pressed="false">NL</button></div>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Dark / Light Theme" title="Toggle Dark/Light Mode">
     <span id="theme-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
     <span id="theme-text">Dark</span>
@@ -489,9 +489,45 @@ de:{
   deont_h:"100 % Deontologische Konformität & Zero-Cookie-Architektur",
   deont_p:"Jedes System entspricht strikt den Deontologie-Richtlinien des luxemburgischen Collège Médical (Art. 34: sachliche, würdevolle Patienteninformation) und den europäischen CNPD Zero-Cookie Standards. Kein rechtliches Risiko für Ihre Praxis.",
   c_h:"Fordern Sie die interaktive Praxis-Vorschau an.",c_p:"Wir analysieren Ihren Auftritt und erstellen innerhalb von 24 Stunden einen mobilen Prototyp. Kostenlos und unverbindlich.",c_btn:"24h-Prototyp anfordern"
+},
+nl:{
+  n_who:"Praktijken",n_calc:"Waarde",n_price:"Tarieven",n_contact:"Contact",
+  cta:"24u Preview Aanvragen",cta2:"Bekijk Architectuur & Prijzen",
+  eye:"Luxemburg · Zwitserland · Monaco · België",
+  h1:"Uw website is uw eerste consultatie.",
+  lead:"AevixLabs ontwerpt op maat gemaakte klinische websystemen voor orthodontisten, implantologen en esthetische artsen, zodat hoogwaardige patiënten voor uw praktijk kiezen nog voor ze bellen.",
+  case_badge:"Casestudy: Cabinet Dentaire Bonnevoie · Inspecteer live systeem ↗",
+  m_cta:"Afspraak via Doctena",m_toast:"Nieuwe Doctena-boeking · 14:30",
+  who_h:"Ontworpen voor praktijken waar vertrouwen beslist.",
+  w1t:"Orthodontisten & kindertandartsen",w1p:"Ouders kiezen op basis van de moderne, zachte en steriele uitstraling van uw online praktijk.",w1v:"Invisalign · € 4.000–€ 7.000 per traject",
+  w2t:"Implantologen & kaakchirurgen",w2p:"Eén enkele hoogwaardige website kan een complexe volledige gebitsreconstructie binnenhalen.",w2v:"Volledige reconstructie · € 10.000–€ 25.000",
+  w3t:"Esthetische artsen & privéklinieken",w3p:"Particuliere patiënten beoordelen uw oog voor detail direct aan uw digitaal design.",w3v:"Botox, fillers, laser · 100% particuliere zorg",
+  calc_h:"Wat is één extra patiënt waard?",calc_p:"Verschuif de regelaars om de extra jaaromzet te berekenen dankzij een modern boekingssysteem.",calc_v:"Gemiddelde behandelwaarde",calc_n:"Extra patiënten per maand",calc_o:"Verwachte jaarlijkse extra omzet",calc_f:"Conservatief rekenmodel. Terugverdiend vanaf patiënt #1.",
+  svc_h:"Alles wat uw praktijk nodig heeft. Niets overbodigs.",
+  s1t:"Klinisch Design Op Maat",s1p:"Exclusieve medische esthetiek ontworpen voor uw praktijk, nooit generieke sjablonen.",
+  s2t:"Directe Laadtijd",s2p:"100/100 prestaties die binnen 0,4s openen op mobiele 5G-netwerken.",
+  s3t:"1-Klik Afsprakendock",s3p:"Naadloze integratie met Doctena (LU/BE) en OneDoc (CH) om bezoekers om te zetten in bevestigde patiënten.",
+  s4t:"Meertalige Synchronisatie",s4p:"Verfijnde teksten in het Nederlands, Frans, Duits en Engels, afgestemd op Europese patiënten.",
+  price_h:"Transparante klinische investering.",price_note:"Vaste prijzen op maat. 70% voordeliger dan traditionele bureaus, inclusief VIP-zorg en zonder verplichte contracten.",
+  p1_tag:"Vlaggenschip · Solo- & Duopraktijken",p1_h:"Compleet Klinisch Systeem",p1_term:"eenmalig",p1_cta:"24u Preview Aanvragen",
+  p1_f1:"Volledige 5–7 pagina's klinische architectuur (100% op maat naar wens)",p1_f2:"Gesynchroniseerd Doctena / OneDoc afsprakendock",p1_f3:"Volledige meertalige synchronisatie (FR / EN / DE / NL) inbegrepen",p1_f4:"100% Zéro-Cookie & CNPD / AVG (GDPR) conformiteit",p1_f5:"★ 6 maanden VIP-cloudhosting & servicegarantie inbegrepen",
+  p2_tag:"Poliklinieken & Chirurgische Centra",p2_h:"Polikliniek Suite",p2_term:"eenmalig",p2_cta:"Klinisch Architect Raadplegen",
+  p2_f1:"10–15 pagina's voor groepspraktijken & specialisten",p2_f2:"Individuele artsprofielen met afzonderlijke Doctena-agenda's",p2_f3:"Interactief digitaal intake- & medisch triageformulier",p2_f4:"Volledige meertalige synchronisatie (FR / EN / DE / NL)",p2_f5:"★ 1 vol jaar VIP-cloudhosting & prioritaire SLA-ondersteuning inbegrepen",
+  care_badge:"100% Eigendom van code en activa",
+  care_title:"Geen verplichte maandelijkse kosten. Geen wurgcontracten.",
+  care_desc:"In tegenstelling tot lokale bureaus die u binden aan contracten van € 250/maand voor 24 maanden, bezit u uw code en domein vanaf dag één. Uw initiële VIP-ondersteuning is 100% gedekt (6 maanden voor solopraktijken, 1 jaar voor poliklinieken). Daarna kiest u zelf:",
+  c_opt1_tag:"Optie A · Maximale Flexibiliteit",
+  c_opt1_desc:"Betaal alleen wanneer u wijzigingen nodig heeft. Uitvoering binnen standaardtermijn (~24 uur). Geen maandelijkse verplichting.",
+  c_opt2_tag:"Optie B · Volledige Gemoedsrust",
+  c_opt2_desc:"Prioritaire uitvoering binnen 6–12 uur, snelle NVMe-hosting, automatische SSL, domeinbewaking en tot 4 seizoensupdates/jaar inbegrepen.",
+  deont_pill:"OFFICIËLE MEDISCH-ETHISCHE NOTA",
+  deont_sub:"Gecertificeerde normen volgens Collège Médical & CNPD",
+  deont_h:"100% Deontologische Conformiteit & Zéro-Cookie Architectuur",
+  deont_p:"Elk systeem is strikt ontworpen volgens de deontologische code van het Collège Médical (Art. 34: waardige, louter informatieve voorlichting) en de Europese CNPD Zéro-Cookie privacynormen. Geen enkel juridisch of tuchtrechtelijk risico voor uw praktijk.",
+  c_h:"Vraag de interactieve preview voor uw praktijk aan.",c_p:"We analyseren uw praktijk en bouwen binnen 24 uur een gepersonaliseerd mobiel prototype. Geheel kosteloos en vrijblijvend.",c_btn:"24u Prototype Aanvragen"
 }
 };
-var LOC={en:"en-IE",fr:"fr-LU",de:"de-LU"},cur="en",shown=0,target=0,busy=false,calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var LOC={en:"en-IE",fr:"fr-LU",de:"de-LU",nl:"nl-BE"},cur="en",shown=0,target=0,busy=false,calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 function money(n){try{return new Intl.NumberFormat(LOC[cur],{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n);}catch(e){return "€"+n;}}
 var cv=document.getElementById("cv"),cp=document.getElementById("cp"),vo=document.getElementById("vo"),po=document.getElementById("po"),out=document.getElementById("out");
 function tick(){shown+=(target-shown)*.18;if(Math.abs(target-shown)<1)shown=target;out.textContent=money(Math.round(shown));if(shown!==target)requestAnimationFrame(tick);else busy=false;}
