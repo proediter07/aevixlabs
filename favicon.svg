@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <path d="M24 6L40 38H32.5L24 21L15.5 38H8L24 6Z" fill="currentColor"/>
-  <polygon points="24,25 29,36 19,36" fill="var(--accent-secondary, #38bdf8)" class="logo-dynamic-accent"/>
-  <circle cx="24" cy="21" r="2.5" fill="#ffffff"/>
+  <rect width="48" height="48" rx="10" fill="#0A0A0A"/>
+  <path d="M24 9L38 38H29.5V29C29.5 25.9624 27.0376 23.5 24 23.5C20.9624 23.5 18.5 25.9624 18.5 29V38H10L24 9Z" fill="#FFFFFF"/>
+  <circle cx="24" cy="18" r="2.6" fill="#7ADBC3"/>
 </svg>
