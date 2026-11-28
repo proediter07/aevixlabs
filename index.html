@@ -752,7 +752,7 @@ import { LiquidGlass } from 'https://cdn.jsdelivr.net/npm/@ybouane/liquidglass/d
     var dark = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark';
     var r = Math.max(24, Math.min(34, Math.round(siteHeader.getBoundingClientRect().height / 2) || 34));
     siteHeader.dataset.config = JSON.stringify({
-      refraction: 0.69,
+      refraction: 0.28,
       cornerRadius: r,
       zRadius: r,
       bevelMode: 0,
@@ -760,7 +760,7 @@ import { LiquidGlass } from 'https://cdn.jsdelivr.net/npm/@ybouane/liquidglass/d
       edgeHighlight: dark ? 0.22 : 0.18,
       fresnel: 1,
       specular: dark ? 0.16 : 0.14,
-      chromAberration: 0.04,
+      chromAberration: 0.025,
       brightness: dark ? -0.24 : 0.06,
       saturation: 0.08,
       tintStrength: 0.04,
