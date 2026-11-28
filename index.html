@@ -71,13 +71,13 @@
   --glass-border:1px solid rgba(10,10,10,.08);
   --glass-shadow:0 10px 30px rgba(0,0,0,.04);
   --nav-bg:rgba(255,255,255,.85);
-  --nav-liquid-bg:linear-gradient(180deg,rgba(255,255,255,0.22) 0%,rgba(255,255,255,0.04) 48%,rgba(255,255,255,0.10) 100%);
+  --nav-liquid-bg:linear-gradient(180deg,rgba(255,255,255,0.68) 0%,rgba(246,248,247,0.45) 100%);
   --nav-liquid-rim:linear-gradient(135deg,rgba(255,255,255,0.95) 0%,rgba(255,255,255,0.32) 35%,rgba(10,10,10,0.12) 68%,rgba(255,255,255,0.78) 100%);
   --nav-liquid-sheen:rgba(255,255,255,0.55);
-  --nav-liquid-shadow:0 12px 30px -8px rgba(10,20,18,0.10),0 2px 6px -1px rgba(0,0,0,0.05),inset 0 1px 1px rgba(255,255,255,0.95),inset 0 -1px 1px rgba(255,255,255,0.45);
-  --nav-liquid-shadow-hover:0 18px 40px -8px rgba(10,20,18,0.14),0 4px 10px -2px rgba(0,0,0,0.06),inset 0 1px 1px #ffffff,inset 0 -1px 1px rgba(255,255,255,0.6);
-  --nav-pill-bg:rgba(10,10,10,0.045);
-  --nav-pill-border:1px solid rgba(10,10,10,0.07);
+  --nav-liquid-shadow:0 12px 30px -8px rgba(10,20,18,0.10),0 2px 6px -1px rgba(0,0,0,0.05),inset 0 1px 1px rgba(255,255,255,0.95);
+  --nav-liquid-shadow-hover:0 18px 40px -8px rgba(10,20,18,0.14),0 4px 10px -2px rgba(0,0,0,0.06),inset 0 1px 1px #ffffff;
+  --nav-pill-bg:rgba(10,10,10,0.06);
+  --nav-pill-border:1px solid rgba(10,10,10,0.08);
   --mock-bg:#ffffff;
   --mock-border:1px solid rgba(10,10,10,.12);
   --mock-head:#111111;
@@ -116,13 +116,13 @@ html[data-theme="dark"]{
   --glass-border:1px solid rgba(255,255,255,.14);
   --glass-shadow:inset 0 1px 0 rgba(255,255,255,.16);
   --nav-bg:rgba(10,10,12,.75);
-  --nav-liquid-bg:linear-gradient(180deg,rgba(255,255,255,0.09) 0%,rgba(12,14,18,0.16) 52%,rgba(255,255,255,0.04) 100%);
+  --nav-liquid-bg:linear-gradient(180deg,rgba(24,28,36,0.72) 0%,rgba(11,16,24,0.64) 100%);
   --nav-liquid-rim:linear-gradient(135deg,rgba(255,255,255,0.42) 0%,rgba(255,255,255,0.10) 38%,rgba(122,219,195,0.16) 72%,rgba(255,255,255,0.28) 100%);
   --nav-liquid-sheen:rgba(255,255,255,0.18);
-  --nav-liquid-shadow:0 16px 40px -10px rgba(0,0,0,0.62),0 2px 8px rgba(0,0,0,0.38),inset 0 1px 1px rgba(255,255,255,0.32),inset 0 -1px 1px rgba(122,219,195,0.12);
-  --nav-liquid-shadow-hover:0 22px 50px -10px rgba(0,0,0,0.72),0 4px 12px rgba(0,0,0,0.45),inset 0 1px 1px rgba(255,255,255,0.42),inset 0 -1px 1px rgba(122,219,195,0.18);
-  --nav-pill-bg:rgba(255,255,255,0.06);
-  --nav-pill-border:1px solid rgba(255,255,255,0.1);
+  --nav-liquid-shadow:0 16px 40px -10px rgba(0,0,0,0.62),0 2px 8px rgba(0,0,0,0.38),inset 0 1px 1px rgba(255,255,255,0.32);
+  --nav-liquid-shadow-hover:0 22px 50px -10px rgba(0,0,0,0.72),0 4px 12px rgba(0,0,0,0.45),inset 0 1px 1px rgba(255,255,255,0.42);
+  --nav-pill-bg:rgba(255,255,255,0.10);
+  --nav-pill-border:1px solid rgba(255,255,255,0.12);
   --mock-bg:#0b0b0c;
   --mock-border:1px solid rgba(255,255,255,.16);
   --mock-head:#ececec;
@@ -151,24 +151,26 @@ html{background:var(--bg);scroll-behavior:smooth;scroll-padding-top:calc(env(saf
 *{box-sizing:border-box}
 body{margin:0;padding-top:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);line-height:1.55;overflow-x:clip}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
-main,footer{user-select:text;-webkit-user-select:text}
-main{padding-top:86px;background:var(--bg)}
+#lg-root{position:relative;min-height:100vh;padding-top:86px;background:var(--bg)}
+#lg-bg{position:fixed;inset:0;background:var(--bg);z-index:0;pointer-events:none}
+#lg-root > section,#lg-root > .hero-sec,#lg-root > .strip,#lg-root > footer{position:relative;z-index:1;user-select:text;-webkit-user-select:text}
 h1,h2,h3,.price,.wm,.big{font-family:var(--font-head);letter-spacing:-.03em}
 .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
 .glass{background:var(--glass-bg);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);border:var(--glass-border);box-shadow:var(--glass-shadow);transition:background .25s ease,border-color .25s ease}
-header.nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translateX(-50%);z-index:50;width:min(1076px,calc(100% - 44px));margin:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px 10px 22px;border-radius:999px;background:var(--nav-liquid-bg);-webkit-backdrop-filter:blur(2.5px) saturate(145%) contrast(1.04) brightness(1.03);backdrop-filter:blur(2.5px) saturate(145%) contrast(1.04) brightness(1.03);border:none;box-shadow:var(--nav-liquid-shadow);transition:box-shadow .3s cubic-bezier(.16,1,.3,1),background .25s ease}
-header.nav::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--nav-liquid-rim);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;pointer-events:none}
-header.nav::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(280px circle at var(--nx,50%) 0%,var(--nav-liquid-sheen),transparent 70%);opacity:0;transition:opacity .35s ease;pointer-events:none}
-header.nav:hover{box-shadow:var(--nav-liquid-shadow-hover)}
-header.nav:hover::after{opacity:1}
-header.nav > *{position:relative;z-index:1}
+header.site-header{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translateX(-50%);z-index:50;width:min(1076px,calc(100% - 44px));margin:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px 10px 22px;border-radius:999px;background:var(--nav-liquid-bg);-webkit-backdrop-filter:blur(22px) saturate(180%);backdrop-filter:blur(22px) saturate(180%);border:1px solid rgba(255,255,255,0.3);box-shadow:var(--nav-liquid-shadow);transition:box-shadow .3s cubic-bezier(.16,1,.3,1)}
+html[data-theme="dark"] header.site-header{border-color:rgba(255,255,255,0.14)}
+header.site-header.lg-ready{background:rgba(255,255,255,0.14);-webkit-backdrop-filter:none;backdrop-filter:none;border-color:transparent;box-shadow:none}
+html[data-theme="dark"] header.site-header.lg-ready{background:rgba(11,20,30,0.22);-webkit-backdrop-filter:none;backdrop-filter:none;border-color:transparent;box-shadow:none}
+header.site-header > *:not(canvas){position:relative;z-index:1}
 .brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;transition:transform .2s}
 .brand:hover{transform:scale(1.02)}
 .brand svg{width:28px;height:28px;filter:drop-shadow(0 2px 6px rgba(44,201,166,.2))}
 .brand svg path{fill:var(--logo-fill);transition:fill .25s ease}
 .wm{font-size:20px;letter-spacing:-.03em;line-height:1}.wm b{font-weight:700;color:var(--ink)}.wm i{font-style:normal;font-weight:400;color:var(--mint2)}
-.links{display:flex;gap:26px}.links a{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-.links a:hover{color:var(--mint)}
+.links{position:relative;display:flex;align-items:center;gap:4px}
+.nav-glass-hover{position:absolute;top:0;left:0;height:100%;border-radius:999px;background:var(--nav-pill-bg);border:var(--nav-pill-border);pointer-events:none;opacity:0;transform:translateX(0);transition:transform .28s cubic-bezier(.16,1,.3,1),width .28s cubic-bezier(.16,1,.3,1),opacity .2s ease}
+.links a{position:relative;z-index:1;color:var(--ink);opacity:.78;text-decoration:none;font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;transition:color .2s,opacity .2s}
+.links a:hover{color:var(--mint);opacity:1}
 .right{display:flex;align-items:center;gap:8px}
 .lang{display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--nav-pill-bg);border:var(--nav-pill-border);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 .lang button{all:unset;cursor:pointer;font-size:12px;letter-spacing:.06em;padding:5px 9px;border-radius:999px;color:var(--mut);transition:all .2s}
@@ -278,9 +280,12 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;text-a
   </symbol>
 </svg>
 
-<header id="liquid-nav" class="nav">
+<div id="lg-root" role="main">
+<div id="lg-bg" aria-hidden="true"></div>
+
+<header id="siteHeader" class="nav site-header">
 <a class="brand" href="#top" aria-label="AevixLabs"><svg viewBox="0 0 64 64"><use href="#m"/></svg><span class="wm"><b>Aevix</b><i>Labs</i></span></a>
-<nav class="links"><a href="#who" data-i18n="n_who">Clinics</a><a href="#calc" data-i18n="n_calc">Value</a><a href="#pricing" data-i18n="n_price">Pricing</a><a href="#contact" data-i18n="n_contact">Contact</a></nav>
+<nav class="links" id="mainNav"><span class="nav-glass-hover" id="navHoverPill" aria-hidden="true"></span><a href="#who" data-i18n="n_who">Clinics</a><a href="#calc" data-i18n="n_calc">Value</a><a href="#pricing" data-i18n="n_price">Pricing</a><a href="#contact" data-i18n="n_contact">Contact</a></nav>
 <div class="right">
   <div class="lang"><button data-l="en" aria-pressed="true">EN</button><button data-l="fr" aria-pressed="false">FR</button><button data-l="de" aria-pressed="false">DE</button><button data-l="nl" aria-pressed="false">NL</button></div>
   <button id="theme-btn" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Dark / Light Theme" title="Toggle Dark/Light Mode">
@@ -291,8 +296,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;text-a
 </div>
 </header>
 
-<main id="top">
-<div class="wrap"><div class="hero">
+<div id="top" class="hero-sec wrap"><div class="hero">
 <div>
 <span class="eye"><span class="dot"></span><span data-i18n="eye">Switzerland · Luxembourg · Monaco</span></span>
 <h1 data-i18n="h1">Your website is your first consultation.</h1>
@@ -425,9 +429,8 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 22px;text-a
 </div>
 
 </div></div></section>
-</main>
-
 <footer>© 2026 AevixLabs · Clinical Web Systems · Switzerland · Luxembourg · Monaco</footer>
+</div>
 <div class="sbar"><a class="btn" href="#contact" data-i18n="cta">Request 24h Preview</a></div>
 
 <script>
@@ -585,6 +588,7 @@ function setLang(l){
   document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-l")===l?"true":"false");});
   shown=target;vo.textContent=money(+cv.value);out.textContent=money(target);
   try{localStorage.setItem("lang",l);}catch(e){}
+  if(window.__rebuildLiquidGlass)window.__rebuildLiquidGlass();
 }
 cv.addEventListener("input",calc);cp.addEventListener("input",calc);
 document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.getAttribute("data-l"));});});
@@ -702,6 +706,7 @@ function setTheme(t){
     if(txt)txt.textContent='Light';
   }
   try{localStorage.setItem('aevix_theme',t);}catch(e){}
+  if(window.__rebuildLiquidGlass)window.__rebuildLiquidGlass();
 }
 try{
   var st=localStorage.getItem('aevix_theme');
@@ -711,13 +716,118 @@ try{
 </script>
 
 <script>
+// Sliding Hover Pill inside #mainNav
 (function(){
-  var nav = document.getElementById('liquid-nav');
-  if (!nav) return;
-  nav.addEventListener('pointermove', function(e){
-    var r = nav.getBoundingClientRect();
-    nav.style.setProperty('--nx', (e.clientX - r.left) + 'px');
+  var nav = document.getElementById('mainNav');
+  var pill = document.getElementById('navHoverPill');
+  if (!nav || !pill) return;
+  var links = nav.querySelectorAll('a');
+  links.forEach(function(link){
+    link.addEventListener('mouseenter', function(){
+      var nr = nav.getBoundingClientRect();
+      var lr = link.getBoundingClientRect();
+      pill.style.width = lr.width + 'px';
+      pill.style.transform = 'translateX(' + (lr.left - nr.left) + 'px)';
+      pill.style.opacity = '1';
+    });
   });
+  nav.addEventListener('mouseleave', function(){
+    pill.style.opacity = '0';
+  });
+})();
+</script>
+
+<script type="module">
+import { LiquidGlass } from 'https://cdn.jsdelivr.net/npm/@ybouane/liquidglass/dist/index.js';
+
+(async function setupSiteLiquidGlass(){
+  var lgRoot = document.getElementById('lg-root');
+  var siteHeader = document.getElementById('siteHeader');
+  if (!lgRoot || !siteHeader) return;
+
+  var lgInstance = null;
+  var rebuildInFlight = null;
+
+  function applyConfig() {
+    var dark = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark';
+    var r = Math.max(24, Math.min(34, Math.round(siteHeader.getBoundingClientRect().height / 2) || 34));
+    siteHeader.dataset.config = JSON.stringify({
+      refraction: 0.69,
+      cornerRadius: r,
+      zRadius: r,
+      bevelMode: 0,
+      blurAmount: 0,
+      edgeHighlight: dark ? 0.22 : 0.18,
+      fresnel: 1,
+      specular: dark ? 0.16 : 0.14,
+      chromAberration: 0.04,
+      brightness: dark ? -0.24 : 0.06,
+      saturation: 0.08,
+      tintStrength: 0.04,
+      shadowOpacity: dark ? 0.36 : 0.14,
+      shadowSpread: dark ? 14 : 12,
+      shadowOffsetY: 2,
+      floating: false,
+      button: false
+    });
+  }
+
+  async function mountGlass() {
+    if (lgInstance) {
+      try { lgInstance.destroy(); } catch(e){}
+      lgInstance = null;
+    }
+    siteHeader.classList.remove('lg-ready');
+    // Re-ensure fixed positioning isn't cleared by destroy()
+    siteHeader.style.position = 'fixed';
+    siteHeader.style.overflow = 'visible';
+    applyConfig();
+
+    lgInstance = await LiquidGlass.init({
+      root: lgRoot,
+      glassElements: [siteHeader]
+    });
+    siteHeader.classList.add('lg-ready');
+  }
+
+  try {
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+    await mountGlass();
+
+    window.__rebuildLiquidGlass = function(){
+      clearTimeout(rebuildInFlight);
+      rebuildInFlight = setTimeout(async function(){
+        try { await mountGlass(); } catch(e){}
+      }, 30);
+    };
+
+    var scrollTick = false;
+    window.addEventListener('scroll', function(){
+      if (!lgInstance || scrollTick) return;
+      scrollTick = true;
+      requestAnimationFrame(function(){
+        scrollTick = false;
+        try { lgInstance.markChanged(); } catch(e){}
+      });
+    }, { passive: true });
+
+    // Re-capture section children when .rv reveal finishes
+    document.querySelectorAll('.rv').forEach(function(el){
+      el.addEventListener('transitionend', function(ev){
+        if (ev.propertyName !== 'opacity' || !lgInstance || !lgInstance.capture) return;
+        var childSec = el.closest('#lg-root > section, #lg-root > .hero-sec');
+        if (childSec) {
+          Promise.resolve(lgInstance.capture.captureElement(childSec, true)).then(function(){
+            lgInstance.markChanged();
+          }).catch(function(){});
+        }
+      }, { once: true });
+    });
+  } catch (err) {
+    console.warn('LiquidGlass fallback active:', err);
+  }
 })();
 </script>
 </body>
